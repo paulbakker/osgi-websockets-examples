@@ -29,11 +29,19 @@ public class EchoServlet extends WebSocketServlet {
 	@Start
 	public void start()  {
 		try {
+			//Store the current CCL
+			ClassLoader ccl = Thread.currentThread().getContextClassLoader();
+
+			//We have to set the CCL to Jetty's bunle classloader
 			BundleWiring bundleWiring = findJettyBundle().adapt(BundleWiring.class);
 			ClassLoader classLoader = bundleWiring.getClassLoader();
-			
 			Thread.currentThread().setContextClassLoader(classLoader);
+
 			m_httpService.registerServlet("/echo", this, null, null);
+			
+			//Restore the CCL
+			Thread.currentThread().setContextClassLoader(ccl);
+			
 		} catch (ServletException | NamespaceException e) {
 			e.printStackTrace();
 		}
