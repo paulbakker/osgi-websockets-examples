@@ -1,0 +1,22 @@
+-runfw: org.apache.felix.framework;version='[4,5)'
+-runee: JavaSE-1.8
+-runsystemcapabilities: ${native_capability}
+
+-resolve.effective: active;skip:="osgi.service"
+-runbundles:  \
+	jetty-websockets;version=latest,\
+	org.apache.felix.http.api,\
+	org.apache.felix.http.jetty,\
+	org.apache.felix.http.servlet-api,\
+	org.apache.felix.dependencymanager,\
+	org.apache.felix.dependencymanager.runtime,\
+	org.apache.felix.dependencymanager.shell,\
+	org.apache.felix.metatype,\
+	org.apache.felix.eventadmin,\
+	org.apache.felix.configadmin,\
+	org.apache.felix.log,\
+	org.apache.felix.http.whiteboard,\
+	org.amdatu.web.resourcehandler,\
+	org.apache.felix.gogo.command,\
+	org.apache.felix.gogo.runtime,\
+	org.apache.felix.gogo.shell

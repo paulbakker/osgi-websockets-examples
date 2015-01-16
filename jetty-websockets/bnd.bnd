@@ -1,0 +1,17 @@
+Bundle-Version: 0.0.0.${tstamp}
+-buildpath:  \
+	org.apache.felix.http.jetty;version=3.0,\
+	org.apache.felix.http.api;version=2.3,\
+	org.apache.felix.http.servlet-api;version=1.1,\
+	../cnf/plugins/org.apache.felix.dependencymanager.annotation-3.2.0.jar;version=file,\
+	org.apache.felix.dependencymanager,\
+	osgi.core;version=5
+Private-Package:  \
+	org.admatu.examples.jetty
+Include-Resource:  \
+	static=static
+X-Web-Resource:  /example;static
+X-Web-Resource-Default-Page:  index.html
+X-Web-Resource-Version:  1.1
+Import-Package:  \
+	*
